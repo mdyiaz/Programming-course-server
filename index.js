@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 5000;
 
+
+app.use(cors());
 const courses = require('./Data/courses.json');
 
 app.get('/',(req, res) =>{
@@ -9,7 +12,7 @@ app.get('/',(req, res) =>{
 });
 
 
-app.get('/courses-api', (req, res) =>{
+app.get('/courses', (req, res) =>{
     res.send(courses)
 })
 
